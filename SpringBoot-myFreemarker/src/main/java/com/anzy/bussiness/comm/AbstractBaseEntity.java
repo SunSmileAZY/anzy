@@ -1,10 +1,6 @@
 package com.anzy.bussiness.comm;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.util.Date;
-
-import org.apache.commons.beanutils.PropertyUtils;
 
 
 public abstract class AbstractBaseEntity implements Serializable {

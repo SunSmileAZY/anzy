@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8">
+			<pattern>[anzy-web] [%level] [%d{yyyy-MM-dd HH:mm:ss}] [%class.%method] [%line] [%msg]%n %ex</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="SYS_INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/myFree/system_info.log
+		</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/myFree/system_info.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+
+		<encoder charset="UTF-8">
+			<pattern>[anzy-web] [%level] [%d{yyyy-MM-dd HH:mm:ss}] [%class.%method] [%line] [%msg]%n %ex</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="SYS_ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/myFree/system_error.log
+		</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/myFree/system_error.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+
+		<encoder charset="UTF-8">
+			<pattern>[anzy-web] [%level] [%d{yyyy-MM-dd HH:mm:ss}] [%class.%method] [%line] [%msg]%n %ex</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="APP_INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/myFree/app_info.log
+		</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/myFree/app_info.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+
+		<encoder charset="UTF-8">
+			<pattern>[anzy-web] [%level] [%d{yyyy-MM-dd HH:mm:ss}] [%class.%method] [%line] [%msg]%n %ex</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="APP_ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.home}/myFree/app_error.log
+		</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${catalina.home}/myFree/app_error.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+
+		<encoder charset="UTF-8">
+			<pattern>[anzy-web] [%level] [%d{yyyy-MM-dd HH:mm:ss}] [%class.%method] [%line] [%msg]%n %ex</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="jdbc.sqlonly" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="jdbc.audit" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="jdbc.resultset" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="jdbc.connection" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="com.botech.skynet.utils" level="ERROR" additivity="false">
+    	<appender-ref ref="CONSOLE" />
+		<appender-ref ref="APP_INFO" />
+		<appender-ref ref="APP_ERROR" />
+    </logger>
+
+	<logger name="com.botech" level="INFO" additivity="false">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="APP_INFO" />
+		<appender-ref ref="APP_ERROR" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="SYS_ERROR" />
+	</root>
+</configuration>
