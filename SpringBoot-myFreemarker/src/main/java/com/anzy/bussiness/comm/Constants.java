@@ -3,8 +3,8 @@ package com.anzy.bussiness.comm;
 /**
  * 常量表
  *
- * @author 当归
- * @version 2014-4-4
+ * @author anzy
+ * @version 20171130
  */
 public class Constants {
 
