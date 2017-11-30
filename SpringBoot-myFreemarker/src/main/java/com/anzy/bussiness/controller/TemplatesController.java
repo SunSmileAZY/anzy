@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 1 在thymeleaf模板中，标签需要闭合，thymeleaf3.0之前需要闭合，之后不强制要求
  * 
  * @author anzy
- *
+ *	测试
  */
 @Controller
 @RequestMapping("/templates/")
