@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import com.anzy.bussiness.comm.AbstractBaseEntity;
+import javax.persistence.Entity;
 
+import com.anzy.bussiness.comm.AbstractBaseEntity;
+//@Entity(name = "au_t_user")
 public class User extends AbstractBaseEntity{
 
 	private static final long serialVersionUID = 1L;

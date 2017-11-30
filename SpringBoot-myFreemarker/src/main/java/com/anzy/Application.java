@@ -1,8 +1,6 @@
 package com.anzy;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;  
 /**
@@ -11,16 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author anzy
  *
  */
-//@MapperScan( sqlSessionFactoryRef = "sqlSessionFactory"	)
+@MapperScan(basePackages = { "com.anzy.bussiness.*.dao" }, sqlSessionFactoryRef = "sqlSessionFactory"	)
 @SpringBootApplication
 public class Application {
 	public static void main(String[] args) {  
-		SpringApplication application = new SpringApplication(Application.class);
-        Map<String, Object> defaultProperties = new HashMap<>();
-        defaultProperties.put("com.anzy.bussiness.*.dao", "com.baomidou.mybatisplus.mapper");
-        application.setDefaultProperties(defaultProperties);
-        application.setWebEnvironment(true);
-        application.run(args);
+		SpringApplication.run(Application.class, args);
     }
 
 //	@Override
