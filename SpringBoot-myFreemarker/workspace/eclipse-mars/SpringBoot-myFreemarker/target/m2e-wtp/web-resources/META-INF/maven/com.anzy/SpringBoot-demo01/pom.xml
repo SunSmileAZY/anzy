@@ -30,7 +30,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- 指定一下jdk的版本 ，这里我们使用jdk 1.8 ,默认是1.6 -->
     <java.version>1.8</java.version>
-    <shiro.version>1.2.3</shiro.version>
+    <shiro.version>1.9.1</shiro.version>
     <guava.version>17.0</guava.version>
     <commons-lang3.version>3.3.2</commons-lang3.version>
 	<commons-io.version>2.4</commons-io.version>
